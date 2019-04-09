@@ -1,7 +1,7 @@
 {
   "name": "roe-plugin-resolve-alias",
   "version": "1.0.0",
-  "description": "roe-plugin-resolve-alias",
+  "description": "Roe plugin to define module resolving aliases for both server side and client side",
   "main": "src/index.js",
   "scripts": {
     "test": "nyc ava --timeout=10s",
@@ -17,7 +17,12 @@
     "url": "git://github.com/kaelzhang/roe-plugin-resolve-alias.git"
   },
   "keywords": [
-    "roe-plugin-resolve-alias"
+    "roe-plugin-resolve-alias",
+    "roe-plugin",
+    "roe",
+    "webpack",
+    "webpack-config",
+    "resolve-alias"
   ],
   "engines": {
     "node": ">= 6"
@@ -37,5 +42,10 @@
     "eslint-config-ostai": "^1.1.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint": "^5.14.0"
+  },
+  "dependencies": {
+    "core-util-is": "^1.0.2",
+    "err-object": "^4.1.0",
+    "object-access": "^2.0.4"
   }
 }

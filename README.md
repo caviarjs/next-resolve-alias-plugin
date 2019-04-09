@@ -15,7 +15,7 @@
 
 # roe-plugin-resolve-alias
 
-<!-- description -->
+Roe plugin to define module resolving aliases for both server side and client side
 
 ## Install
 
@@ -25,9 +25,28 @@ $ npm i roe-plugin-resolve-alias
 
 ## Usage
 
+roe.config.js
+
 ```js
-import roe_plugin_resolve_alias from 'roe-plugin-resolve-alias'
+const AliasPlugin = require('roe-plugin-resolve-alias')
+
+module.exports = {
+  plugins: [
+    new AliasPlugin({
+      fetch: {
+        server: 'node-fetch',
+        client: 'fetch-ponyfill'
+      }
+    })
+  ],
+  ...
+}
 ```
+
+The code above will set `webpack.output.resolve.alias.fetch` as
+
+- `'node-fetch'` in server side
+- and `'fetch-ponyfill'` in client side
 
 ## License
 
