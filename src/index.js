@@ -32,7 +32,7 @@ module.exports = class AliasPlugin {
   }
 
   apply (lifecycle) {
-    lifecycle.hooks.webpack.tap('ResolveAliasPlugin', (webpack, {
+    lifecycle.hooks.webpackConfig.tap('ResolveAliasPlugin', (webpack, {
       isServer
     }) => {
       const aliases = get(webpack, DEFAULT_PATHS, {})
