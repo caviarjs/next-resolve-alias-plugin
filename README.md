@@ -1,34 +1,34 @@
-[![Build Status](https://travis-ci.org/kaelzhang/roe-plugin-resolve-alias.svg?branch=master)](https://travis-ci.org/kaelzhang/roe-plugin-resolve-alias)
-[![Coverage](https://codecov.io/gh/kaelzhang/roe-plugin-resolve-alias/branch/master/graph/badge.svg)](https://codecov.io/gh/kaelzhang/roe-plugin-resolve-alias)
+[![Build Status](https://travis-ci.org/kaelzhang/caviar-plugin-resolve-alias.svg?branch=master)](https://travis-ci.org/kaelzhang/caviar-plugin-resolve-alias)
+[![Coverage](https://codecov.io/gh/kaelzhang/caviar-plugin-resolve-alias/branch/master/graph/badge.svg)](https://codecov.io/gh/kaelzhang/caviar-plugin-resolve-alias)
 <!-- optional appveyor tst
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/kaelzhang/roe-plugin-resolve-alias?branch=master&svg=true)](https://ci.appveyor.com/project/kaelzhang/roe-plugin-resolve-alias)
+[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/kaelzhang/caviar-plugin-resolve-alias?branch=master&svg=true)](https://ci.appveyor.com/project/kaelzhang/caviar-plugin-resolve-alias)
 -->
 <!-- optional npm version
-[![NPM version](https://badge.fury.io/js/roe-plugin-resolve-alias.svg)](http://badge.fury.io/js/roe-plugin-resolve-alias)
+[![NPM version](https://badge.fury.io/js/@caviar/plugin-resolve-alias.svg)](http://badge.fury.io/js/@caviar/plugin-resolve-alias)
 -->
 <!-- optional npm downloads
-[![npm module downloads per month](http://img.shields.io/npm/dm/roe-plugin-resolve-alias.svg)](https://www.npmjs.org/package/roe-plugin-resolve-alias)
+[![npm module downloads per month](http://img.shields.io/npm/dm/@caviar/plugin-resolve-alias.svg)](https://www.npmjs.org/package/@caviar/plugin-resolve-alias)
 -->
 <!-- optional dependency status
-[![Dependency Status](https://david-dm.org/kaelzhang/roe-plugin-resolve-alias.svg)](https://david-dm.org/kaelzhang/roe-plugin-resolve-alias)
+[![Dependency Status](https://david-dm.org/kaelzhang/caviar-plugin-resolve-alias.svg)](https://david-dm.org/kaelzhang/caviar-plugin-resolve-alias)
 -->
 
-# roe-plugin-resolve-alias
+# @caviar/plugin-resolve-alias
 
-Roe plugin to define module resolving aliases for both server side and client side
+Caviar plugin to define module resolving aliases for both server side and client side
 
 ## Install
 
 ```sh
-$ npm i roe-plugin-resolve-alias
+$ npm i @caviar/plugin-resolve-alias
 ```
 
 ## Usage
 
-roe.config.js
+caviar.config.js
 
 ```js
-const AliasPlugin = require('roe-plugin-resolve-alias')
+const AliasPlugin = require('@caviar/plugin-resolve-alias')
 
 module.exports = {
   plugins: [

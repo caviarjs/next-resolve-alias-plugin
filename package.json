@@ -1,11 +1,11 @@
 {
-  "name": "roe-plugin-resolve-alias",
+  "name": "@caviar/plugin-resolve-alias",
   "version": "2.0.0",
-  "description": "Roe plugin to define module resolving aliases for both server side and client side",
+  "description": "Caviar plugin to define module resolving aliases for both server side and client side",
   "main": "src/index.js",
   "scripts": {
     "test": "nyc ava --timeout=10s",
-    "test-no-report": "NODE_DEBUG=roe-plugin-resolve-alias nyc ava --timeout=10s --verbose",
+    "test-no-report": "NODE_DEBUG=@caviar/plugin-resolve-alias nyc ava --timeout=10s --verbose",
     "lint": "eslint .",
     "posttest": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
@@ -14,12 +14,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/kaelzhang/roe-plugin-resolve-alias.git"
+    "url": "git://github.com/kaelzhang/caviar-plugin-resolve-alias.git"
   },
   "keywords": [
-    "roe-plugin-resolve-alias",
-    "roe-plugin",
-    "roe",
+    "@caviar/plugin-resolve-alias",
+    "caviar-plugin",
+    "caviar",
     "webpack",
     "webpack-config",
     "resolve-alias"
@@ -33,7 +33,7 @@
   "author": "kaelzhang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kaelzhang/roe-plugin-resolve-alias/issues"
+    "url": "https://github.com/kaelzhang/caviar-plugin-resolve-alias/issues"
   },
   "devDependencies": {
     "ava": "^1.2.1",
