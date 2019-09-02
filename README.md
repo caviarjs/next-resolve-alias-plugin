@@ -59,22 +59,36 @@ The code above will set `webpack.output.resolve.alias.fetch` as
 interface Alias {
   // Module id
   id: string
-  //
+  // `server` could be
+  // - a module id string
+  // - a `require.resolve()`d absolute path for a module id
+  // - false to prevent from setting resolve alias for server side
   server?: string = id | false
   client?: string = id | false
+  // Where should `server` and `client` be resolved from, defaults to `defaultFrom`,
+  // will be useless if `server` and `client` are both absolute paths
   from?: string = defaultFrom
 }
 ```
 
-### Using `react` and `react-dom` installed in current project
+### Using `react` installed in current project
 
 ```js
-new AliasPlugin(['react', 'react-dom'], __dirname)
+new AliasPlugin(['react'], __dirname)
 ```
 
+Or
 
+```js
+// You could resolve the module id yourself
+new AliasPlugin([{
+  id: 'react',
+  server: require.resolve('react'),
+  client: require.resolve('react')
+}])
 
-###
+// `defaultFrom` could be omitted if `server` and `client` are absolute paths
+```
 
 ## License
 
