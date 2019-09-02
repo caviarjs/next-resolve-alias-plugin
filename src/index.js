@@ -2,6 +2,7 @@ const {join, resolve} = require()
 const {get, set} = require('object-access')
 const {isArray, isObject, isString} = require('core-util-is')
 const {isAbsolute} = require('is-absolute')
+const resolveFrom = require('resolve-from')
 
 const NextBlock = require('@caviar/next-block')
 
@@ -9,6 +10,8 @@ const {error} = require('./error')
 
 const DEFAULT_PATHS = ['resolve', 'alias']
 const RESOLVE_ALIAS_PLUGIN = 'ResolveAliasPlugin'
+
+const isValidFrom = f => isString(f) || f === undefined
 
 const createResolveAlias = (type, code) => (alias, from, i) => {
   if (!alias) {
@@ -19,13 +22,19 @@ const createResolveAlias = (type, code) => (alias, from, i) => {
     throw error(code, i, alias)
   }
 
-  alias = join(from, alias)
+  if (isAbsolute(alias)) {
+    return alias
+  }
 
-  if (!isAbsolute(alias)) {
+  if (!from) {
     throw error('PATH_CAN_NOT_RESOLVE', i, type, i, type)
   }
 
-  return alias
+  try {
+    return resolveFrom(alias, from)
+  } catch (err) {
+    throw error('ERR_RESOLVE_PATH', i, type, from, err.stack)
+  }
 }
 
 const resolveServerAlias = createResolveAlias('server', 'INVALID_ALIAS_SERVER')
@@ -35,6 +44,10 @@ module.exports = class AliasPlugin {
   constructor (aliases, defaultFrom) {
     if (!isArray(aliases)) {
       throw error('INVALID_ALIASES', aliases)
+    }
+
+    if (!isValidFrom(defaultFrom)) {
+      throw error('INVALID_DEFAULT_FROM', defaultFrom)
     }
 
     this._aliases = aliases.map((alias, i) => {
@@ -60,7 +73,12 @@ module.exports = class AliasPlugin {
         throw error('INVALID_ALIAS_ID', i, id)
       }
 
-      from = resolve(from)
+      if (!isValidFrom(from)) {
+        throw error('INVALID_ALIAS_FROM', i, from)
+      }
+
+      // from and defaultFrom can both be undefined
+      from = from && resolve(from)
       server = resolveServerAlias(server, from, i)
       client = resolveClientAlias(client, from, i)
 

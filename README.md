@@ -65,6 +65,8 @@ interface Alias {
 }
 ```
 
+### Using `react` and `react-dom`
+
 ## License
 
 MIT
