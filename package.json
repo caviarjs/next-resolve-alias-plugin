@@ -36,16 +36,16 @@
     "url": "https://github.com/kaelzhang/caviar-plugin-resolve-alias/issues"
   },
   "devDependencies": {
-    "ava": "^1.2.1",
-    "codecov": "^3.2.0",
-    "nyc": "^13.3.0",
-    "eslint-config-ostai": "^1.1.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint": "^5.14.0"
+    "ava": "^2.3.0",
+    "codecov": "^3.5.0",
+    "nyc": "^14.1.1",
+    "eslint-config-ostai": "^3.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint": "^6.3.0"
   },
   "dependencies": {
     "core-util-is": "^1.0.2",
-    "err-object": "^4.1.0",
+    "err-object": "^5.1.4",
     "is-absolute": "^1.0.0",
     "object-access": "^2.0.4",
     "resolve-from": "^5.0.0"

@@ -15,7 +15,7 @@
 
 # @caviar/next-resolve-alias-plugin
 
-Caviar plugin to define module resolving aliases for both server side and client side
+[@caviar/next-block](https://www.npmjs.com/package/@caviar/next-block) plugin to define module resolving aliases for both server side and client side
 
 ## Install
 
@@ -34,8 +34,10 @@ module.exports = {
   caviar: {
     plugins: [
       new AliasPlugin([{
-        id
-      }]),
+        id: 'fetch',
+        server: 'node-fetch',
+        client: 'fetch-ponyfill'
+      }], __dirname),
       ...
     ]
   },
@@ -48,17 +50,18 @@ The code above will set `webpack.output.resolve.alias.fetch` as
 - `'node-fetch'` in server side
 - and `'fetch-ponyfill'` in client side
 
-## new AliasPlugin(aliases, from?)
+## new AliasPlugin(aliases, defaultFrom?)
 
 - **aliases** `Array<Alias | string>`
-- **from?** `path`
+- **defaultFrom?** `path`
 
 ```ts
 interface Alias {
   id: string
+  //
   server?: string = id | false
   client?: string = id | false
-  from?: string
+  from?: string = defaultFrom
 }
 ```
 
