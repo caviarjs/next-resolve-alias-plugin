@@ -3,6 +3,7 @@ const {isObject, isString} = require('core-util-is')
 const {error} = require('./error')
 
 const DEFAULT_PATHS = ['resolve', 'alias']
+const RESOLVE_ALIAS_PLUGIN = 'ResolveAliasPlugin'
 
 const invalidAlias = s => !isString(s) && s !== undefined
 
@@ -32,7 +33,7 @@ module.exports = class AliasPlugin {
   }
 
   apply (lifecycle) {
-    lifecycle.hooks.webpackConfig.tap('ResolveAliasPlugin', (webpack, {
+    lifecycle.hooks.webpackConfig.tap(RESOLVE_ALIAS_PLUGIN, (webpack, {
       isServer
     }) => {
       const aliases = get(webpack, DEFAULT_PATHS, {})

@@ -1,11 +1,11 @@
 {
-  "name": "@caviar/plugin-resolve-alias",
+  "name": "@caviar/next-resolve-alias-plugin",
   "version": "2.0.0",
   "description": "Caviar plugin to define module resolving aliases for both server side and client side",
   "main": "src/index.js",
   "scripts": {
     "test": "nyc ava --timeout=10s",
-    "test-no-report": "NODE_DEBUG=@caviar/plugin-resolve-alias nyc ava --timeout=10s --verbose",
+    "test-no-report": "NODE_DEBUG=@caviar/next-resolve-alias-plugin nyc ava --timeout=10s --verbose",
     "lint": "eslint .",
     "posttest": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
@@ -17,7 +17,7 @@
     "url": "git://github.com/kaelzhang/caviar-plugin-resolve-alias.git"
   },
   "keywords": [
-    "@caviar/plugin-resolve-alias",
+    "@caviar/next-resolve-alias-plugin",
     "caviar-plugin",
     "caviar",
     "webpack",
@@ -46,6 +46,11 @@
   "dependencies": {
     "core-util-is": "^1.0.2",
     "err-object": "^4.1.0",
-    "object-access": "^2.0.4"
+    "is-absolute": "^1.0.0",
+    "object-access": "^2.0.4",
+    "resolve-from": "^5.0.0"
+  },
+  "peerDependencies": {
+    "@caviar/next-block": "^3.0.1"
   }
 }
