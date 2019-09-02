@@ -1,8 +1,9 @@
-const {join, resolve} = require()
+const {resolve} = require()
 const {get, set} = require('object-access')
 const {isArray, isObject, isString} = require('core-util-is')
 const {isAbsolute} = require('is-absolute')
 const resolveFrom = require('resolve-from')
+const parseId = require('module-id')
 
 const NextBlock = require('@caviar/next-block')
 
@@ -12,6 +13,18 @@ const DEFAULT_PATHS = ['resolve', 'alias']
 const RESOLVE_ALIAS_PLUGIN = 'ResolveAliasPlugin'
 
 const isValidFrom = f => isString(f) || f === undefined
+const isValidId = id => {
+  let parsed
+
+  try {
+    parsed = parseId(id)
+  } catch (err) {
+    return false
+  }
+
+  // `id` should not contain version
+  return !parsed.version
+}
 
 const createResolveAlias = (type, code) => (alias, from, i) => {
   if (!alias) {
@@ -27,13 +40,13 @@ const createResolveAlias = (type, code) => (alias, from, i) => {
   }
 
   if (!from) {
-    throw error('PATH_CAN_NOT_RESOLVE', i, type, i, type)
+    throw error('MODULE_CAN_NOT_RESOLVE', alias, i, type, i, type)
   }
 
   try {
     return resolveFrom(alias, from)
   } catch (err) {
-    throw error('ERR_RESOLVE_PATH', i, type, from, err.stack)
+    throw error('ERR_RESOLVE_MODULE', alias, i, type, from, err.stack)
   }
 }
 
@@ -69,8 +82,8 @@ module.exports = class AliasPlugin {
         from = defaultFrom
       } = alias
 
-      if (!isString(id)) {
-        throw error('INVALID_ALIAS_ID', i, id)
+      if (!isValidId(id)) {
+        throw error('INVALID_ALIAS_ID', id, i)
       }
 
       if (!isValidFrom(from)) {

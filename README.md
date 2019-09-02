@@ -57,6 +57,7 @@ The code above will set `webpack.output.resolve.alias.fetch` as
 
 ```ts
 interface Alias {
+  // Module id
   id: string
   //
   server?: string = id | false
@@ -65,7 +66,15 @@ interface Alias {
 }
 ```
 
-### Using `react` and `react-dom`
+### Using `react` and `react-dom` installed in current project
+
+```js
+new AliasPlugin(['react', 'react-dom'], __dirname)
+```
+
+
+
+###
 
 ## License
 

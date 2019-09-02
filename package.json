@@ -47,6 +47,7 @@
     "core-util-is": "^1.0.2",
     "err-object": "^5.1.4",
     "is-absolute": "^1.0.0",
+    "module-id": "^2.0.6",
     "object-access": "^2.0.4",
     "resolve-from": "^5.0.0"
   },

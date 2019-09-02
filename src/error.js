@@ -8,7 +8,7 @@ TE('INVALID_DEFAULT_FROM', 'defaultFrom must be a string or undefined')
 
 TE('INVALID_ALIAS', 'aliases[i] must be an object or a string')
 
-TE('INVALID_ALIAS_ID', 'aliases[%s].id must be a string')
+E('INVALID_ALIAS_ID', '`%s` (aliases[%s].id) is not a valid id')
 
 TE('INVALID_ALIAS_FROM', 'aliases[%s].from must be a string or undefined')
 
@@ -18,13 +18,13 @@ TE('INVALID_ALIAS_SERVER',
 TE('INVALID_ALIAS_CLIENT',
   'aliases[%s].client must be a string or false if specified')
 
-E('PATH_CAN_NOT_RESOLVE', `aliases[%s].%s could not be resolved as an absolute path, you should:
+E('MODULE_CAN_NOT_RESOLVE', `module "%s" (aliases[%s].%s) could not be resolved as an absolute path, you should:
   - specify defaultFrom
   - specify aliases[%s].from
   - provide %s as an absolute path
 `)
 
-E('ERR_RESOLVE_PATH', `aliases[%s].%s could not be resolved from "%s", reason:
+E('ERR_RESOLVE_MODULE', `module "%s" (aliases[%s].%s) could not be resolved from "%s", reason:
 %s`)
 
 module.exports = {
