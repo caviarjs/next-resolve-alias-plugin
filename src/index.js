@@ -109,11 +109,11 @@ module.exports = class AliasPlugin {
     }) => {
       const aliases = get(webpack, DEFAULT_PATHS, {})
 
-      this._aliases.forEach(([{
+      this._aliases.forEach(({
         id,
         server,
         client
-      }]) => {
+      }) => {
         const alias = isServer
           ? server
           : client
