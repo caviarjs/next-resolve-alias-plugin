@@ -1,7 +1,7 @@
-const {resolve} = require()
+const {resolve} = require('path')
 const {get, set} = require('object-access')
 const {isArray, isObject, isString} = require('core-util-is')
-const {isAbsolute} = require('is-absolute')
+const isAbsolute = require('is-absolute')
 const resolveFrom = require('resolve-from')
 const parseId = require('module-id')
 
@@ -44,7 +44,7 @@ const createResolveAlias = (type, code) => (alias, from, i) => {
   }
 
   try {
-    return resolveFrom(alias, from)
+    return resolveFrom(from, alias)
   } catch (err) {
     throw error('ERR_RESOLVE_MODULE', alias, i, type, from, err.stack)
   }
