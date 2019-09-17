@@ -1,6 +1,6 @@
 {
   "name": "@caviar/next-resolve-alias-plugin",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "description": "Caviar plugin to define module resolving aliases for both server side and client side",
   "main": "src/index.js",
   "scripts": {
@@ -52,6 +52,6 @@
     "resolve-from": "^5.0.0"
   },
   "peerDependencies": {
-    "@caviar/next-block": "^4.0.3"
+    "@caviar/next-block": "^4.1.0"
   }
 }
